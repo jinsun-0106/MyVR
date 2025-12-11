@@ -5,12 +5,12 @@ using UnityEngine.XR.Interaction.Toolkit.Interactables;
 namespace MyVR
 {
     /// <summary>
-    /// 잡히는오브젝트의 잡히는 위치 지정
+    /// 잡히는 오브젝트의 잡히는 위치 지정
     /// </summary>
-    public class XROffSetGrabInteractable : XRGrabInteractable
+    public class XROffsetGrabInteractable : XRGrabInteractable
     {
         #region Variables
-        private GameObject attachPoint;             //잡히는 위치를 가진 오브젝트
+        private GameObject attachPoint; //잡히는 위치를 가진 오브젝트
         #endregion
 
         #region Unity Event Method
@@ -22,16 +22,8 @@ namespace MyVR
                 attachPoint = new GameObject("Offset Grab Pivot");
                 attachPoint.transform.SetParent(transform, false);
                 attachTransform = attachPoint.transform;
-            }
+            }            
         }
-
-        /*protected override void OnSelectEntered(SelectEnterEventArgs args)
-        {
-            attachTransform.position = args.interactorObject.transform.position;
-            attachTransform.rotation = args.interactorObject.transform.rotation;
-
-            base.OnSelectEntered(args);
-        }*/
 
         protected override void OnSelectEntering(SelectEnterEventArgs args)
         {
@@ -40,7 +32,6 @@ namespace MyVR
 
             base.OnSelectEntering(args);
         }
-
         #endregion
     }
 }
